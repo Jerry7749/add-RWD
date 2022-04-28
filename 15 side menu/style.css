@@ -1,0 +1,307 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	text-decoration: none
+  }
+/* ======================= */
+
+.wrap{
+	max-width: 1000px;
+	margin: 0 auto;
+	background-color: #f4f4f4;
+	overflow: hidden; 
+	position: relative;
+	
+}
+/* ==========aside============= */
+.aside{
+	width: 270px;
+	height: 100%;
+	position: absolute;
+	transform: translateX(-270px);
+	background-color: red;
+	transition: all .3s;
+}
+.aside .menu li{
+	background-color: black;
+	margin: 10px;
+}
+.aside .menu li a{
+	color:#fff;
+	padding: 10px;
+	display: block;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+
+}
+.aside .menu li a:hover{
+	background: blue;
+}
+/* ======================= */
+.mobile-link,.mobile-close{
+  background: green;
+  color: #fff;
+  padding: 5px;
+  display: inline-block;
+  margin: 5px;
+}
+.mobile-link{
+	display:none;
+}
+@media(max-width: 768px){
+	.mobile-link{
+	  display:inline-block;
+	  position: absolute;
+	}
+}
+/* ======================= */
+.main{
+	transition: all 0.3s;
+}
+/* ======================= */
+.open .header .menu{
+	display: none;
+}
+.open .main{
+	-webkit-transform: translateX(270px);
+	transform: translateX(270px);
+}
+.open .aside{   
+	-webkit-transform: translateX(0px);
+	transform: translateX(0px);
+}
+
+
+/* ======================= */
+.header{
+	position: relative;
+}
+.social{
+	display: flex;
+	justify-content: end;
+	background-color: rgba(0, 0, 0, 0.041);
+	padding:5px;
+
+}
+.social img{
+    margin-left:8px ;
+    margin-right: 2px;
+
+}
+.social a{
+	text-decoration: none;
+	font-weight: bold;
+    padding-right: 8px;
+    font-size:15px
+}
+
+/* ============================= */
+
+.topbar{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom:1px solid black ;
+	position: relative;
+	
+}
+
+.topbar h1 a{
+	background-image: url(https://raw.githubusercontent.com/hexschool/HTMLHWSource/master/singlePage/logo.png);
+	width: 224px;
+    height: 50px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent:101% ;
+}
+.topbar ul {
+    display: flex;
+  
+}
+.topbar ul a{
+    text-decoration: none;
+    color:#66e0c2 ;
+    font-weight: bold;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    padding: 20px;
+
+}
+.topbar ul a:hover{
+    background: rgba(0, 0, 0, 0.075);
+    color: white;
+
+}
+.showmenu{
+	display: none;
+}
+
+@media(max-width:768px){
+	.header{
+		position: fixed;
+		width: 100%;
+		background-color:white;
+	}
+	
+
+
+	.topbar{
+		display: block;
+	}
+	
+	/* 把選單隱藏起來 max-height: 0px;  overflow: hidden;  */
+	/* 讓選單呈現滿版 right: 0;   left: 0; */
+	/* 選單呈現出來的時間transition:max-height 2s ; */
+	.topbar ul{
+		display: block;
+		max-height: 0px;
+		overflow: hidden;
+		position: absolute;
+		right: 0;
+		left: 0;
+		background:#0000006b;
+		transition:max-height 2s ;
+		
+	}
+	.menu-show .topbar ul{
+		max-height: 500px;
+	}
+	
+	
+	.topbar ul li{
+		width: 100%;
+	}
+	.topbar ul li a{
+		text-align: center;
+	}
+	.showmenu{
+		display: block;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 30px;
+		border: 1px solid black;
+	}
+
+
+
+}
+@media(max-width:414px){
+	.topbar ul li{
+		width: 100%;
+	}
+}
+
+
+
+/* ============================= */
+
+.content{
+    display: flex;
+    justify-content: space-around;
+    padding: 65px 5px;
+    
+}
+.content .box{
+    width: 302px;
+    padding: 25px 20px;
+    box-shadow: 0 2px 2px rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    margin: 0 14px;
+    
+}
+.content .box img{
+	
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.content h3{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 8px;
+    margin-top: 12px;
+}
+.content p{
+    font-size: 15px;
+    letter-spacing:2px;
+    line-height: 23px;
+}
+
+
+.content ul li{
+    font-size: 15px;
+    letter-spacing:2px;
+    list-style-type:disc;
+    margin-left: 20px;
+    line-height: 23px;
+}
+@media(max-width:768px){
+	.content{
+		display: block;
+		padding-top: 100px;
+	}
+	.content .box{
+		margin: 0 auto;
+		width: 60%;
+
+	}
+	.box img{
+		height: auto;
+		width: auto;
+	}
+
+}
+
+
